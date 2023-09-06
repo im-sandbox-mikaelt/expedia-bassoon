@@ -45,6 +45,6 @@ jobs:
           path: ./.github/actions/hello-expedia1-composite-action
 
       - name: Using a composite Action
-      - uses: ./.github/actions/hello-expedia1-composite-action
+        uses: ./.github/actions/hello-expedia1-composite-action
         with:
           who-to-greet: 'Mona the Octocat with expedia!!'
