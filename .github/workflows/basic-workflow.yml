@@ -39,11 +39,12 @@ jobs:
         if: ${{ github.event_name == 'pull_request' }}
         run: echo Hello from the PR!!
 
-  deployment:
-    runs-on: ubuntu-latest
-    needs: build1
-    environment: DEV
-    steps:
-      - name: deploy
-        run: echo Hello from the Deployment!!
-        # ...deployment-specific steps
+      - uses: actions/checkout@v3
+        with:
+          repository: 'im-sandbox-mikaelt/hello-expedia1-composite-action'
+          path: ./.github/actions/hello-expedia1-composite-action
+
+      - name: Using a composite Action
+      - uses: ./.github/actions/hello-expedia1-composite-action
+        with:
+          who-to-greet: 'Mona the Octocat with expedia!!'
